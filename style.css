@@ -1,0 +1,389 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+/* CSS Variables for Theme Colors */
+:root {
+    --primary-color: #ff0077;
+    --secondary-color: #0077ff;
+    --background-color: #000;
+    --glow-intensity: 0.8;
+    --button-border: 3px;
+    --transition-speed: 0.5s;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Orbitron', sans-serif;
+    color: #fff;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    background: var(--background-color);
+}
+
+.container {
+    perspective: 1500px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* Advanced Red-Blue Glowing Animated Background */
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color), var(--primary-color));
+    background-size: 600% 600%;
+    animation: gradientAnimation 15s ease infinite;
+    filter: brightness(0.8) blur(50px);
+    z-index: -2;
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Overlay for Enhanced Glow */
+.background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 0, 119, 0.4), rgba(0, 119, 255, 0.2));
+    animation: pulse 6s infinite alternate;
+    z-index: -1;
+}
+
+@keyframes pulse {
+    from {
+        transform: scale(1);
+        opacity: 0.4;
+    }
+    to {
+        transform: scale(1.05);
+        opacity: 0.6;
+    }
+}
+
+/* Header */
+header h1 {
+    font-size: 3.5em;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #fff;
+    text-shadow: 0 0 30px rgba(255, 0, 119, var(--glow-intensity)), 0 0 50px rgba(0, 119, 255, var(--glow-intensity));
+    transition: color var(--transition-speed), text-shadow var(--transition-speed);
+}
+
+header h1:hover {
+    color: #ff3385;
+    text-shadow: 0 0 40px rgba(255, 50, 119, 1), 0 0 60px rgba(0, 150, 255, 1);
+}
+
+/* Profile Section */
+.profile {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 60px;
+    border-radius: 25px;
+    box-shadow: 0 0 70px rgba(255, 0, 119, 0.5), 0 0 70px rgba(0, 119, 255, 0.5);
+    transform: rotateY(20deg) rotateX(15deg);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed), background var(--transition-speed);
+    backdrop-filter: blur(10px);
+}
+
+.profile:hover {
+    transform: rotateY(0deg) rotateX(0deg);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 120px rgba(255, 0, 119, 0.8), 0 0 120px rgba(0, 119, 255, 0.8);
+}
+
+.profile-pic img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 5px solid var(--primary-color);
+    box-shadow: 0 0 40px rgba(255, 0, 119, 0.8), 0 0 40px rgba(0, 119, 255, 0.8);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    transform-style: preserve-3d;
+}
+
+.profile-pic img:hover {
+    transform: scale(1.15) rotateY(10deg);
+    box-shadow: 0 0 60px rgba(255, 0, 119, 1), 0 0 60px rgba(0, 119, 255, 1);
+}
+
+.details {
+    margin-left: 50px;
+    text-align: left;
+    transform: translateZ(30px);
+}
+
+.details h2 {
+    font-size: 3em
+}
+/* General Settings */
+:root {
+    --primary-color: #ff0077;
+    --secondary-color: #0077ff;
+    --tertiary-color: #00ff99;
+    --background-color: #000;
+    --button-glow-duration: 3s;
+    --border-glow-duration: 6s;
+    --glow-intensity: 1;
+    --button-border: 3px;
+    --transition-speed: 0.4s;
+    --pulse-duration: 1.5s;
+}
+
+body {
+    font-family: 'Orbitron', sans-serif;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: var(--background-color);
+    overflow: hidden;
+    position: relative;
+}
+
+/* Glowing Animated Background */
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, var(--primary-color), var(--secondary-color), var(--tertiary-color), var(--primary-color));
+    background-size: 400% 400%;
+    animation: gradientAnimation 12s ease infinite;
+    filter: blur(50px) brightness(1.2);
+    z-index: -2;
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Glowing Profile Section with Animated Border */
+.profile {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.07);
+    padding: 60px;
+    border-radius: 25px;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 0 80px rgba(255, 0, 119, 0.7), 0 0 80px rgba(0, 119, 255, 0.7), 0 0 80px rgba(0, 255, 153, 0.7);
+    transition: background var(--transition-speed), transform var(--transition-speed);
+    transform: rotateY(25deg) rotateX(20deg);
+    border: 5px solid transparent;
+    background-clip: padding-box;
+}
+
+.profile::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    width: calc(100% + 12px);
+    height: calc(100% + 12px);
+    border-radius: 25px;
+    background: linear-gradient(120deg, var(--primary-color), var(--secondary-color), var(--tertiary-color), var(--primary-color));
+    background-size: 300% 300%;
+    animation: borderGlowAnimation var(--border-glow-duration) ease infinite;
+    z-index: -1;
+}
+
+@keyframes borderGlowAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.profile:hover {
+    transform: rotateY(0deg) rotateX(0deg);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 120px rgba(255, 0, 119, 1), 0 0 120px rgba(0, 119, 255, 1), 0 0 120px rgba(0, 255, 153, 1);
+}
+
+.profile-pic img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 5px solid rgba(255, 0, 119, 0.8);
+    box-shadow: 0 0 40px rgba(255, 0, 119, 1), 0 0 40px rgba(0, 119, 255, 1), 0 0 40px rgba(0, 255, 153, 1);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    transform-style: preserve-3d;
+}
+
+.profile-pic img:hover {
+    transform: scale(1.2) rotateY(15deg);
+    box-shadow: 0 0 80px rgba(255, 0, 119, 1), 0 0 80px rgba(0, 119, 255, 1), 0 0 80px rgba(0, 255, 153, 1);
+}
+
+/* Details Section */
+.details {
+    margin-left: 50px;
+}
+
+.details h2 {
+    font-size: 3.2em;
+    color: #fff;
+    text-shadow: 0 0 20px var(--primary-color), 0 0 20px var(--secondary-color);
+}
+
+.details p {
+    font-size: 1.5em;
+    color: var(--primary-color);
+    text-shadow: 0 0 10px rgba(255, 0, 119, 0.8);
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Glowing Button with Multi-Color Animation */
+.glow-button {
+    padding: 15px 40px;
+    font-size: 1.3em;
+    color: #fff;
+    background: transparent;
+    border-radius: 30px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all var(--transition-speed) ease;
+    z-index: 1;
+}
+
+.glow-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 30px;
+    background: linear-gradient(120deg, var(--primary-color), var(--secondary-color), var(--tertiary-color));
+    background-size: 200% 200%;
+    animation: buttonGlowAnimation var(--button-glow-duration) ease infinite;
+    z-index: -1;
+    filter: blur(20px);
+    opacity: 1;
+}
+
+@keyframes buttonGlowAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.glow-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 40px rgba(255, 0, 119, 0.8), 0 0 40px rgba(0, 119, 255, 0.8), 0 0 40px rgba(0, 255, 153, 0.8);
+}
+
+/* About Section */
+.about-section {
+    margin-top: 50px;
+    text-align: center;
+    animation: fadeIn 2s ease forwards;
+}
+
+.about-section h2 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    text-shadow: 0 0 30px var(--primary-color), 0 0 40px var(--secondary-color), 0 0 50px var(--tertiary-color);
+    animation: glow 3s infinite alternate ease-in-out;
+}
+
+@keyframes glow {
+    0% { text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--secondary-color); }
+    100% { text-shadow: 0 0 40px var(--primary-color), 0 0 50px var(--secondary-color), 0 0 60px var(--tertiary-color); }
+}
+
+.about-section p {
+    font-size: 1.5em;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 0, 119, 0.4), 0 0 20px rgba(0, 119, 255, 0.4), 0 0 20px rgba(0, 255, 153, 0.4);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.about-section p:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 40px rgba(255, 0, 119, 0.8), 0 0 40px rgba(0, 119, 255, 0.8), 0 0 40px rgba(0, 255, 153, 0.8);
+}
+
+/* Responsive Styles */
+@media only screen and (max-width: 768px) {
+    .profile {
+        flex-direction: column;
+        padding: 40px;
+    }
+
+    .profile-pic img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .details {
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .glow-button {
+        padding: 10px 30px;
+        font-size: 1.1em;
+    }
+
+    .about-section h2 {
+        font-size: 2.5em;
+    }
+
+    .about-section p {
+        font-size: 1.2em;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .details h2 {
+        font-size: 2em;
+    }
+
+    .glow-button {
+        padding: 8px 20px;
+        font-size: 1em;
+    }
+
+    .about-section h2 {
+        font-size: 2em;
+    }
+}
